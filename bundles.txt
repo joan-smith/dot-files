@@ -1,0 +1,19 @@
+total 64
+drwxr-xr-x+  9 joans  staff    306 Dec  3 09:40 ag
+drwxr-xr-x+  8 joans  staff    272 Jul 25 11:40 ctrlp.vim
+-rw-r--r--+  1 joans  staff  30714 Dec  4 09:18 matchit.vim
+drwxr-xr-x+  6 joans  staff    204 Dec  4 09:18 matchit.zip
+drwxr-xr-x+  8 joans  staff    272 Dec  3 09:39 nerdcommenter
+drwxr-xr-x+ 11 joans  staff    374 Jul  1 15:04 nerdtree
+drwxr-xr-x+  6 joans  staff    204 Dec  3 09:57 rainbow_parentheses.vim
+drwxr-xr-x+ 12 joans  staff    408 Dec  4 09:38 tcomment_vim
+drwxr-xr-x+ 19 joans  staff    646 Jul  1 15:54 vim-coffee-script
+drwxr-xr-x+  8 joans  staff    272 Jul 27 16:49 vim-colors-solarized
+drwxr-xr-x+  5 joans  staff    170 Jul  1 15:02 vim-colorschemes
+drwxr-xr-x+  5 joans  staff    170 Dec  5 09:33 vim-lucius
+drwxr-xr-x+ 14 joans  staff    476 Dec  3 09:43 vim-markdown
+drwxr-xr-x+  9 joans  staff    306 Jul  2 15:35 vim-rails
+drwxr-xr-x+  5 joans  staff    170 Dec  3 09:55 vim-repeat
+drwxr-xr-x+  7 joans  staff    238 Dec  3 09:48 vim-surround
+drwxr-xr-x+ 17 joans  staff    578 Dec  4 09:14 vim-textobj-rubyblock
+drwxr-xr-x+ 11 joans  staff    374 Dec  4 09:14 vim-textobj-user

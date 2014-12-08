@@ -1,0 +1,22 @@
+[push]
+	default = current
+
+[alias]
+	st = status
+	co = checkout
+    uncom = reset --soft HEAD^
+	undo = reset --soft HEAD^
+	unstage = reset HEAD
+	aa = add --all
+	ds = diff --staged
+	st = status -sb
+	d = difftool
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+    editor = vim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
