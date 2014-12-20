@@ -6,11 +6,10 @@ NC="\[\e[0m\]" # No Color
 
 PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$BLACK\$ "
 
-PATH=" /usr/bin/vim /usr/local/Cellar/vim/7.4.488/bin/:${PATH}"
+PATH="/usr/local/Cellar/vim/7.4.488/bin/:${PATH}"
 PATH="/usr/local/bin:${PATH}"
 PATH="/Users/joans/.rbenv/shims:${PATH}"
 export PATH
-
 
 export PAGER="less -siJmnw"
 export CXX=/usr/bin/clang++
@@ -55,17 +54,10 @@ shopt -s histappend
 #Bash auto completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
       . $(brew --prefix)/etc/bash_completion
-      fi
+fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 
-
-
-source /usr/local/git/contrib/completion/git-completion.bash
-source /usr/local/git/contrib/completion/git-prompt.sh
 # Includes the branch info
 export PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$RED\$(__git_ps1)$BLACK\$ "
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
