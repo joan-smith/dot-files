@@ -6,7 +6,7 @@ NC="\[\e[0m\]" # No Color
 
 PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$BLACK\$ "
 
-PATH="/usr/local/Cellar/vim/7.4.488/bin/:${PATH}"
+PATH="/usr/local/Cellar/vim/7.4.488/bin:${PATH}"
 PATH="/usr/local/bin:${PATH}"
 PATH="/Users/joans/.rbenv/shims:${PATH}"
 export PATH
