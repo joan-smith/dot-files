@@ -29,25 +29,6 @@ alias drmi='docker rmi'
 alias drmstopped='docker rm $(docker ps -aq)'
 alias drmiuntagged='docker rmi $(docker images -q --filter "dangling=true")'
 
-<<<<<<< HEAD
-=======
-prod_zgrep() {
-   dsh -M -g $1 -r ssh "zgrep -i $3 '$2' /srv/$1/current/log/production.log*.gz"
-}
-
-
-prod_grep_fast() {
-    dsh -M -g $1 -r ssh "grep -i $3 '$2' /srv/$1/current/log/production.log"
-}
-
-prod_grep() {
-    dsh -M -g $1 -r ssh "grep -i $3 '$2' /srv/$1/current/log/production.log /srv/$1/current/log/production.log.1"
-}
-
-prod_collector_grep() {
-    dsh -M -g $1 -r ssh "grep -i $3 '$2' /var/log/collector/unicorn.stderr.log"
-}
-
 #Force history to be appended on each shell insert
 export PROMPT_COMMAND='history -a'
 
@@ -62,7 +43,6 @@ shopt -s histappend
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
       . $(brew --prefix)/etc/bash_completion
 fi
->>>>>>> origin/master
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=true
