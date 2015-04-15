@@ -1,3 +1,6 @@
+[user]
+	email = joans@twitter.com
+	name = Joan Smith
 [push]
 	default = current
 
@@ -12,6 +15,7 @@
 	st = status -sb
 	d = difftool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  cleanup =  "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 [core]
     editor = vim
 [diff]
