@@ -18,12 +18,15 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set cursorline
 set laststatus=2
+autocmd BufWinEnter * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 set mouse=a
-set relativenumber
 nmap ; :
 
 "Set to auto read when a file is changed from the outside
 set autoread
+au FocusGained,BufEnter * :silent! !
 
 "Set mapleader
 let mapleader = ","
@@ -81,11 +84,18 @@ set t_vb=
 set hlsearch
 set ignorecase
 set incsearch
-nnoremap / /\v
-vnoremap / /\v
 set gdefault
 set showmatch
 nnoremap <leader><space> :noh<cr>
+let g:ag_qhandler="copen 20"
+let g:ag_mappings={ "x": "<C-W><CR><C-W>K" }
+
+
+nnoremap <leader>n :NERDTree<cr>
+
+let NERDTreeMapCloseDir='c'
+let NERDTreeMapOpenVSplit='v'
+let NERDTreeMapOpenSplit='x'
 
 "tab moves between brackets
 nnoremap <tab> %
@@ -110,10 +120,16 @@ nmap <silent> <c-l> :wincmd l<CR>
 "Handy Shortcuts
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
+"Disable Markdown
+let g:vim_markdown_folding_disabled=1
+
 
 "##############################################################################
 " Homegrown functions
 "##############################################################################
+
+command Json execute "%!python -m json.tool"
+
 " Jump to the next or previous line that has the same level or a lower
 " level of indentation than the current line.
 "
