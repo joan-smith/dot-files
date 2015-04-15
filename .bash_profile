@@ -8,7 +8,7 @@ PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$BLACK\$ "
 
 PATH="/usr/local/Cellar/vim/7.4.488/bin:${PATH}"
 PATH="/usr/local/bin:${PATH}"
-PATH="/Users/joans/.rbenv/shims:${PATH}"
+PATH="Users/joans/.rvm/:${PATH}"
 export PATH
 
 export PAGER="less -siJmnw"
@@ -18,28 +18,16 @@ export EDITOR="vim"
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/joans/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_76.jdk/Contents/Home/
 
 alias lash='ls -Glash'
 alias ll='ls -Glh'
 alias vssh='cd /crashlytics/hosted-chef; vagrant ssh pipeline'
 alias drmf='docker rm -f '
-
-prod_zgrep() {
-   dsh -M -g $1 -r ssh "zgrep -i $3 '$2' /srv/$1/current/log/production.log*.gz"
-}
-
-
-prod_grep_fast() {
-    dsh -M -g $1 -r ssh "grep -i $3 '$2' /srv/$1/current/log/production.log"
-}
-
-prod_grep() {
-    dsh -M -g $1 -r ssh "grep -i $3 '$2' /srv/$1/current/log/production.log /srv/$1/current/log/production.log.1"
-}
-
-prod_collector_grep() {
-    dsh -M -g $1 -r ssh "grep -i $3 '$2' /var/log/collector/unicorn.stderr.log"
-}
+alias dpsa='docker ps -a'
+alias drmi='docker rmi'
+alias drmstopped='docker rm $(docker ps -aq)'
+alias drmiuntagged='docker rmi $(docker images -q --filter "dangling=true")'
 
 #Force history to be appended on each shell insert
 export PROMPT_COMMAND='history -a'
@@ -59,5 +47,8 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 
+source /usr/local/git/contrib/completion/git-completion.bash
+source /usr/local/git/contrib/completion/git-prompt.sh
+source ~/.rvm/scripts/rvm
 # Includes the branch info
 export PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$RED\$(__git_ps1)$BLACK\$ "
