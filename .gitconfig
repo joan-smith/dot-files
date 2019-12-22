@@ -1,11 +1,10 @@
 [user]
-	email = joans@twitter.com
+	email = joans@alum.mit.edu
 	name = Joan Smith
 [push]
 	default = current
 
 [alias]
-	st = status
 	co = checkout
     uncom = reset --soft HEAD^
 	undo = reset --soft HEAD^
@@ -16,6 +15,7 @@
 	d = difftool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   cleanup =  "!git co master && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  stpy = status -sb */*.py
 [core]
     editor = vim
 [diff]
