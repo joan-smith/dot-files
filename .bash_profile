@@ -6,28 +6,15 @@ NC="\[\e[0m\]" # No Color
 
 PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$BLACK\$ "
 
-PATH="/usr/local/Cellar/vim/7.4.488/bin:${PATH}"
 PATH="/usr/local/bin:${PATH}"
-PATH="Users/joans/.rvm/:${PATH}"
 export PATH
 
 export PAGER="less -siJmnw"
-export CXX=/usr/bin/clang++
-export CC=/usr/bin/clang
 export EDITOR="vim"
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/joans/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_76.jdk/Contents/Home/
 
 alias lash='ls -Glash'
 alias ll='ls -Glh'
-alias vssh='cd /crashlytics/hosted-chef; vagrant ssh pipeline'
-alias drmf='docker rm -f '
-alias dpsa='docker ps -a'
-alias drmi='docker rmi'
-alias drmstopped='docker rm $(docker ps -aq)'
-alias drmiuntagged='docker rmi $(docker images -q --filter "dangling=true")'
 
 #Force history to be appended on each shell insert
 export PROMPT_COMMAND='history -a'
@@ -41,14 +28,38 @@ shopt -s histappend
 
 #Bash auto completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-      . $(brew --prefix)/etc/bash_completion
+	. $(brew --prefix)/etc/bash_completion
 fi
-
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 
-source /usr/local/git/contrib/completion/git-completion.bash
-source /usr/local/git/contrib/completion/git-prompt.sh
-source ~/.rvm/scripts/rvm
 # Includes the branch info
 export PS1="$RED\${?##0} $BLACK{\T} $GRAY\h$BLACK:$BLUE\W$RED\$(__git_ps1)$BLACK\$ "
+
+source activate base> /dev/null 2>&1
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/joan/google-cloud-sdk/path.bash.inc' ]; then source '/Users/joan/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/joan/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/joan/google-cloud-sdk/completion.bash.inc'; fi
+
+
+# added by Anaconda3 2019.10 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Users/joan/opt/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Users/joan/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/joan/opt/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/Users/joan/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
