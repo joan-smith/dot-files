@@ -8,6 +8,8 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set t_Co=256
+set background=light
+colorscheme solarized
 
 "Set some sane defaults
 set wildmenu
